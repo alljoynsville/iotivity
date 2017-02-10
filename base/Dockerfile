@@ -56,5 +56,5 @@ RUN [ "x${RELEASE}" = "xtrue" ] && branch='release' || branch='debug' && \
       git clone https://github.com/01org/tinycbor.git extlibs/tinycbor/tinycbor && \
       git clone https://github.com/ARMmbed/mbedtls.git extlibs/mbedtls/mbedtls && \
       scons SECURED=${SECURED} RELEASE=${RELEASE} LOGGING=${LOGGING} --prefix=${PREFIX} && \
-      scons SECURED=${SECURED} RELEASE=${RELEASE} LOGGING=${LOGGING} install --prefix=${PREFIX} && \
+      sudo scons SECURED=${SECURED} RELEASE=${RELEASE} LOGGING=${LOGGING} install --prefix=${PREFIX} && \
       cd ..
