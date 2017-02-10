@@ -1,4 +1,4 @@
-FROM ubuntu:yakkety
+FROM ubuntu:xenial
 
 ENV IOTIVITY_VERSION 1.2-rel
 
@@ -19,7 +19,7 @@ ENV PREFIX ${PREFIX:-/usr}
 # Based on instructions on iotivity/Readme.scons.txt
 
 # Install build tools
-RUN apt-get -y update && apt-get install -y \
+RUN apt-get -yqq update && apt-get install -yqq \
       git-core \
       scons \
       ssh \
@@ -40,6 +40,13 @@ RUN apt-get -y update && apt-get install -y \
       libcurl4-openssl-dev \
       unzip \
       curl \
+# extra
+      sudo \
+      vim \
+      wget \
+      less \
+      python \
+      python-pip \
 # Cleanup
     && rm -rf /var/lib/apt/lists/*
 
