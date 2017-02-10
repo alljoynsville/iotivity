@@ -27,6 +27,7 @@ RUN apt-get -yqq update && apt-get install -yqq \
       g++ \
       doxygen \
       valgrind \
+      subversion \
 # Install external libraries
       libboost-dev \
       libboost-program-options-dev \
@@ -35,6 +36,7 @@ RUN apt-get -yqq update && apt-get install -yqq \
       libssl-dev \
       libtool \
       libglib2.0-dev \
+      libsqlite3-dev \
 # Install other required packaes
       apt-utils \
       libcurl4-openssl-dev \
@@ -49,7 +51,6 @@ RUN apt-get -yqq update && apt-get install -yqq \
       python-pip \
 # Cleanup
     && rm -rf /var/lib/apt/lists/*
-
 
 RUN	useradd -m builder && \
 	echo 'builder ALL=NOPASSWD: ALL' > /etc/sudoers.d/builder
