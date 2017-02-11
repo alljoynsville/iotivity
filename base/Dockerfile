@@ -1,4 +1,4 @@
-FROM ubuntu:xenial
+FROM ubuntu:yakkety
 
 ENV IOTIVITY_VERSION 1.2-rel
 
@@ -62,7 +62,8 @@ RUN [ "x${RELEASE}" = "xtrue" ] && branch='release' || branch='debug' && \
     git clone https://gerrit.iotivity.org/gerrit/p/iotivity.git --branch ${IOTIVITY_VERSION} && \
     cd iotivity && \
       git clone https://github.com/01org/tinycbor.git extlibs/tinycbor/tinycbor && \
-      git clone https://github.com/ARMmbed/mbedtls.git extlibs/mbedtls/mbedtls && \
-      scons SECURED=${SECURED} RELEASE=${RELEASE} LOGGING=${LOGGING} --prefix=${PREFIX} && \
-      sudo scons SECURED=${SECURED} RELEASE=${RELEASE} LOGGING=${LOGGING} install --prefix=${PREFIX} && \
-      cd ..
+      git clone https://github.com/ARMmbed/mbedtls.git extlibs/mbedtls/mbedtls
+#      && \
+#      scons SECURED=${SECURED} RELEASE=${RELEASE} LOGGING=${LOGGING} --prefix=${PREFIX} && \
+#      sudo scons SECURED=${SECURED} RELEASE=${RELEASE} LOGGING=${LOGGING} install --prefix=${PREFIX} && \
+#      cd ..
