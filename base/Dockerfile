@@ -49,7 +49,7 @@ RUN apt-get -yqq update && apt-get install -yqq \
       less \
       python \
       python-pip \
-      pkg-config
+      pkg-config \
 # Cleanup
     && rm -rf /var/lib/apt/lists/*
 
