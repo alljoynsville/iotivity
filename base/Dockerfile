@@ -1,6 +1,6 @@
-FROM ubuntu:yakkety
+FROM ubuntu:xenial
 
-ENV IOTIVITY_VERSION 1.2-rel
+ENV IOTIVITY_VERSION 1.2.1_with_bridging
 
 # params that can be overridden at build time
 
@@ -64,7 +64,6 @@ RUN [ "x${RELEASE}" = "xtrue" ] && branch='release' || branch='debug' && \
     cd iotivity && \
       git clone https://github.com/01org/tinycbor.git extlibs/tinycbor/tinycbor && \
       git clone https://github.com/ARMmbed/mbedtls.git extlibs/mbedtls/mbedtls
-#      && \
-#      scons SECURED=${SECURED} RELEASE=${RELEASE} LOGGING=${LOGGING} --prefix=${PREFIX} && \
+      
+RUN   scons SECURED=${SECURED} RELEASE=${RELEASE} LOGGING=${LOGGING} --prefix=${PREFIX} 
 #      sudo scons SECURED=${SECURED} RELEASE=${RELEASE} LOGGING=${LOGGING} install --prefix=${PREFIX} && \
-#      cd ..
