@@ -1,4 +1,4 @@
-FROM ubuntu:xenial
+FROM ubuntu:trusty
 
 ENV IOTIVITY_VERSION 1.2.1_with_bridging
 
